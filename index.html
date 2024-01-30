@@ -7,12 +7,29 @@
     <body>
 	<style>
 	body {
-	background-color: grayblack;
+	background-color: #000;
 	}
-	#scratch {
-		color: orange;
+	.all {
+		background: linear-gradient(125deg,Red,Orange,Yellow,Green,Blue,Purple,Pink);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color:transparent;
+		background-size: 300% 300%;
+		animation: gradient 8s ease in out infinite;
 		font-family: Monospace
 	}
+	@keyframes gradient {
+	  0% {
+		background-position: 0% 50%;
+	  }
+	  50% {
+		background-position: 100% 50%;
+	  }
+	  100% {
+		background-position: 0% 50%;
+	  }
+	}
 	</style>
+<div class="all">
 <h4>For Scratch Links Go To</h4> <a id=scratch href="https://Miharbi789.github.io/Scratch.html">Scratch</a>
+</div>
 </body>
