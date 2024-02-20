@@ -3,53 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Favorite Websites</title>
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Miharbi789/Miharbi789.github.io/4c7ae3bec3cd8393a903dac14b47a5f048bd712a/Vector(Just%20in%20case).ico">
+    <title>Dynamic Navigation Template</title>
     <style>
-        /* Resetting default styles */
-        body, h4 {
+        /* Global styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        /* General styling */
-        body {
-            background-color: #000;
+            background-color: #0e0e0e;
             color: #fff;
-            font-family: "Single Day", sans-serif;
-            line-height: 1.6;
-            padding: 20px;
         }
 
-        /* Link styling */
-        a {
-            color: #ff6666;
+        /* Header styles */
+        header {
+            background-color: #333;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation styles */
+        nav {
+            background-color: #111;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav a {
             text-decoration: none;
-            transition: color 0.3s;
-        }
-        a:hover {
-            color: #ff9999;
-            text-decoration: underline;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: font-size 0.3s; /* Add transition for font size */
+            position: relative;
+            color: transparent;
         }
 
-        /* Container styling */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        nav a::before {
+            content: attr(data-text); /* Use data-text attribute as content */
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: transparent;
+            overflow: hidden;
+            transition: color 0.3s ease-out; /* Transition for text color */
+            z-index: 9;
+            animation: rainbow 5s infinite linear; /* Apply rainbow animation */
         }
-        h4 {
-            color: #ff9999;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+
+        @keyframes rainbow {
+            0% { color: #ff0000; } /* Red */
+            14.3% { color: #ff9400; } /* Orange */
+            28.6% { color: #ffeb00; } /* Yellow */
+            42.9% { color: #2aff00; } /* Green */
+            57.2% { color: #00fffd; } /* Cyan */
+            71.5% { color: #1d00ff; } /* Blue */
+            85.8% { color: #a500ff; } /* Purple */
+            100% { color: #ff0000; } /* Red */
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; /* Adjust the underline position */
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #fff; /* White underline */
+            transform: scaleX(0); /* Initially invisible */
+            transition: transform 0.3s ease-out; /* Transition for underline */
+            transform-origin: 0 50%; /* Transform origin from left to right */
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1); /* Fully visible underline on hover */
+        }
+
+        /* Rounded box styles */
+        .rounded-box {
+            background-color: #888; /* Grey background color */
+            width: 150px; /* Set fixed width */
+            height: 150px; /* Set fixed height */
+            padding: 20px;
+            border-radius: 20px; /* Rounded border */
+            margin-top: 20px; /* Add some space between navigation and box */
+            text-align: center; /* Center the content inside the box */
+        }
+
+        /* Content inside rounded box */
+        .rounded-box-content {
+            display: flex; /* Use flexbox to center content */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            height: 100%; /* Make content take full height of box */
+        }
+
+        .rounded-box img {
+            max-width: 100%; /* Limit the image width to prevent enlargement */
+            height: auto;
+            border-radius: 20px; /* Rounded corners for image */
+            margin-bottom: 20px; /* Add space below the image */
+        }
+
+        p {
+            font-size: 18px; /* Adjust font size */
+            font-weight: bold; /* Make text bold */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav li {
+                margin: 0 10px;
+            }
+            nav a {
+                font-size: 16px;
+            }
+        }
+        .web-link {
+          
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://penguinmod.com/profile?user=Miharbi789">For Dzje</a>
-        <h4>For Scratch Links, Visit:</h4> 
-        <a href="https://Miharbi789.github.io/Scratch.html">Scratch</a>
+    <header>
+        <h1>My Favorite Websites</h1>
+        <h3>By Miharbi789</h3>
+    </header>
+    <nav id="navigation">
+        <ul>
+            <!-- Navigation links will be dynamically added here -->
+            <li><a href="#" data-text="Home">Home</a></li>
+            <li><a href="#" data-text="About">About</a></li>
+        </ul>
+    </nav>
+    <!-- Rounded box below the navigation -->
+    <div class="rounded-box">
+        <!-- Content of the rounded box goes here -->
+        <div class="rounded-box-content">
+            <img src="https://raw.githubusercontent.com/Miharbi789/Miharbi789.github.io/3c7e45d344b8ed39300504d9330b1269ab8aea79/Scratch.svg" alt="Example Image">
+            <a href="https://Miharbi789.github.io/Scratch.html">            
+            <p class="web-link">Scratch</p>
+            </a>        
+        </div>
     </div>
+    <!-- Audio element for background sound -->
+    <audio id="backgroundSound" autoplay loop>
+        <source src="https://github.com/Miharbi789/Miharbi789.github.io/raw/main/H.mp3" type="audio/mpeg">
+    </audio>
 </body>
 </html>
